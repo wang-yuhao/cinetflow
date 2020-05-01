@@ -9,3 +9,8 @@ The Leibniz Supercomputing Centre of the Bavarian Academy of Sciences and Humani
 While traditional NetFlow Collectors focus on calculating and visualizing many different scenarios (e.g. most used application on the network, top talkers, and many more), an asset database is rarely included even though the information can already be found in the data. Another problem is the amount of flows generated in a large-scale network such as the MWN. With more than 350,000 flows per second, processing the data in realtime is a challenge for most systems.
 
 The outcome of this thesis should be a concept and prototypical implementation of a realtime asset database using the latest technology to process as many flows as possible in realtime and visualize active devices on the network.
+
+
+# Todo:
+1. Generate millions of IP addresses
+2. Write the first chapter of the master thesis
