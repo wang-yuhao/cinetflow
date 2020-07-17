@@ -18,6 +18,14 @@ from .v5 import V5ExportPacket
 from .v9 import V9ExportPacket
 
 
+
+def re_combine(line):
+            line = line.replace("\n", "")
+            row = line.split(' ')
+            row = list(filter(None, row))
+            return row
+
+
 class UnknownExportVersion(Exception):
     def __init__(self, data, version):
         self.data = data
