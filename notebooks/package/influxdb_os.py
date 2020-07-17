@@ -33,8 +33,8 @@ class InfluOperation():
             if(self.flag == True):
                 await client.query('drop measurement assetdb_ts')
                 self.flag = False
+            flow_time_list = []
             with open(path_ts, 'r') as read_obj_time:
-                flow_time_list = []
                 start_time = datetime.datetime.now()
                 for line_time in read_obj_time:
                     row_time = re_combine(line_time)
@@ -44,7 +44,7 @@ class InfluOperation():
                     last = int("".join(last[0:5]))
                     row_time = (last, srcaddr, srcport, proto)
                     flow_time_list.append(row_time)
-                    if(len(flow_time_list) == 1000):
+                    if(len(flow_time_list) == 100000):
                     # write DataFrame into influxdb and count the total time
                     # Filter 'srcaddr', 'arcport', and 'First' from records, and transform list to DataFrame
                         new_record = pd.DataFrame(data=flow_time_list, columns=['Last', 'srcaddr','srcport','protocol'])
@@ -58,6 +58,7 @@ class InfluOperation():
                             #self.flag = False
                         await client.write(new_record, 'assetdb_ts', tag_columns=['srcaddr'])
                         print("Write DataFrame")
+                        flow_time_list = []
 
             new_record = pd.DataFrame(data=flow_time_list, columns=['Last', 'srcaddr', 'srcport', 'protocol'])
             new_record['Last'] = pd.to_datetime(new_record['Last'], format='%Y%m%d%H%M%S')

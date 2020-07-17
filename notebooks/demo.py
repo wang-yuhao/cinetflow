@@ -44,10 +44,10 @@ class MonitorFolder():
 if __name__ == "__main__" :         
     myTool = MysqlOperation()
     influTool = InfluOperation()
-    path = './data/test'
+    path = '/var/cache/nfdump'
     reader = MonitorFolder(path)
     reader.inQueue()
-    src_path = './data/test/'
+    src_path = '/var/cache/nfdump/'
     dst_path = './data/csv/'
     #worker = InsertOperation()
     for i in reader.outQueue():
