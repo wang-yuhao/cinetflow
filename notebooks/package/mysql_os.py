@@ -258,7 +258,7 @@ class MysqlOperation():
         start_time = datetime.datetime.now()
         sql = "select sum(bytes),round(last/100) from assetdb_main where last > %s group by round(last / 100)"
         last_10_hourse = datetime.datetime.now() - datetime.timedelta(hours = 10)
-        last_10_hourse = last_10_hourse.strftime("%Y%m%d%H") 
+        last_10_hourse = last_10_hourse.strftime("%Y%m%d%H%M") 
         value = int(last_10_hourse)
         task = asyncio.ensure_future(self.valueQuery( sql, value))
         result = self.loop.run_until_complete(task)
