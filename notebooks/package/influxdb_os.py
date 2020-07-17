@@ -66,7 +66,6 @@ class InfluOperation():
             # Set the 'First' as index
             new_record.set_index('Last', inplace=True)
 
-            start_time = datetime.datetime.now()
             await client.create_database(db='assetdb')
             await client.write(new_record, 'assetdb_ts', tag_columns=['srcaddr'])
             end_time = datetime.datetime.now()
