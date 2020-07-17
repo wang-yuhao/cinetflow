@@ -1,14 +1,5 @@
 #!/usr/bin/env python3
 
-"""
-Netflow V1 collector and parser implementation in Python 3.
-This file belongs to https://github.com/bitkeks/python-netflow-v9-softflowd.
-Created purely for fun. Not battled tested nor will it be.
-
-Reference https://www.cisco.com/c/en/us/td/docs/net_mgmt/netflow_collection_engine/3-6/user/guide/format.html
-This script is specifically implemented in combination with softflowd. See https://github.com/djmdjm/softflowd
-"""
-
 import struct
 
 __all__ = ["V1DataFlow", "V1ExportPacket", "V1Header"]
